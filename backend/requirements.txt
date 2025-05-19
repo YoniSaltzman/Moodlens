@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+fer
+opencv-python
+numpy
+moviepy==1.0.3
+tensorflow
+python-multipart
