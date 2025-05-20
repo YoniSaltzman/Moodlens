@@ -15,7 +15,7 @@ st.markdown(
 unsafe_allow_html=True,
 )
 
-API_URL = 'http://127.0.0.1:8000/detect'
+API_URL = 'https://moodlens-qavb.onrender.com/detect'
 
 # Initialize session state
 if 'emotion' not in st.session_state:
@@ -35,7 +35,7 @@ class VideoTransformer(VideoTransformerBase):
         
         # Process every 10th frame
         self.frame_count += 1
-        if self.frame_count % 10 == 0:
+        if self.frame_count % 40 == 0:
             # Convert image to bytes
             _, buffer = cv2.imencode('.jpg', img)
             io_buf = BytesIO(buffer)
@@ -95,5 +95,5 @@ with display_container:
 
 # Rerun the app periodically to update the UI
 if webrtc_ctx.state.playing:
-    time.sleep(0.5)  # Add a small delay to prevent too frequent updates
+    time.sleep(2)  # Add a small delay to prevent too frequent updates
     st.rerun()
